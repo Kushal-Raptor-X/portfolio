@@ -1,0 +1,41 @@
+{
+  "_readme": "Timeline entries, rendered in array order (keep newest first). To add an internship/role: copy an object, fill fields, set visible:true.",
+  "timeline": [
+    {
+      "id": "pr-head-csi",
+      "visible": true,
+      "period": "2025 — present",
+      "role": "Public Relations Head",
+      "org": "CSI VESIT",
+      "description": "Promoted from Jr. Public Relations Officer. Leads outreach and promotion for VESIT's Computer Society of India chapter.",
+      "highlights": []
+    },
+    {
+      "id": "art-in-axes",
+      "visible": true,
+      "period": "2025",
+      "role": "Instructor & Curriculum Architect — 'Art in Axes'",
+      "org": "CSI VESIT",
+      "description": "Designed and hosted a live, end-to-end Blender 3D workshop for 60+ absolute beginners — reverse-engineered his own learning struggles into a curriculum that took the room from blank canvas to finished renders.",
+      "highlights": ["60+ beginners taught", "Promo reel: 3,700+ views (produced & animated it)"]
+    },
+    {
+      "id": "beyond-hawkins",
+      "visible": true,
+      "period": "2025",
+      "role": "Digital Outreach — 'Beyond Hawkins'",
+      "org": "CSI VESIT",
+      "description": "Conceptualized and produced a Stranger Things–themed promotional reel that went viral within the student community and measurably drove event registrations.",
+      "highlights": ["23,000+ views"]
+    },
+    {
+      "id": "btech-vesit",
+      "visible": true,
+      "period": "2024 — 2028",
+      "role": "B.Tech, Artificial Intelligence & Data Science",
+      "org": "VESIT, University of Mumbai",
+      "description": "CGPA trending 9.0+ across four semesters (9.36 / 9.20 / 9.50 / 9.08).",
+      "highlights": []
+    }
+  ]
+}

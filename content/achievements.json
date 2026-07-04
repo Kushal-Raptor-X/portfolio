@@ -1,0 +1,12 @@
+{
+  "_readme": "Achievement chips shown under the experience timeline. Order = render order.",
+  "achievements": [
+    { "id": "impact-lab",   "visible": true, "text": "Selected — Claude Impact Lab Mumbai (Anthropic-partnered), 1 of 200 from 2,000+ applicants" },
+    { "id": "airavat",      "visible": true, "text": "National Top 40 Finalist — Airavat 3.0, IEEE CS SPIT" },
+    { "id": "syrus",        "visible": true, "text": "Top 6 Finalist — Syrus 2026, CodeCell++ VESIT" },
+    { "id": "techsprint",   "visible": true, "text": "Top 10 Finalist — TechSprint, GDG VESIT" },
+    { "id": "codopoly",     "visible": true, "text": "Winner — ISA VESIT Codopoly 2025" },
+    { "id": "amazing-race", "visible": true, "text": "Finalist — Amazing Race 2025, CSI VESIT" },
+    { "id": "pwnisher",     "visible": true, "text": "2× featured in Pwnisher's official render-challenge compilations" }
+  ]
+}

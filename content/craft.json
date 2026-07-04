@@ -1,0 +1,25 @@
+{
+  "_readme": "Craft/Lab section: skill facets, game card, commissions CTA, external art profiles.",
+  "facets": [
+    { "id": "blender", "visible": true, "title": "3D — Blender", "description": "Modeling, shading, rendering. Client brand work + render-challenge entries." },
+    { "id": "video", "visible": true, "title": "Video — DaVinci Resolve", "description": "Edits and promo reels — 23,000+ views on the biggest one." },
+    { "id": "design", "visible": true, "title": "Design — Figma & Canva", "description": "UI/UX flows and digital branding." },
+    { "id": "gamedev", "visible": true, "title": "Game dev", "description": "Small playable experiments on itch.io." }
+  ],
+  "game": {
+    "visible": true,
+    "title": "Submarine Trash Collector",
+    "description": "Playable browser game — pilot a submarine, clean the ocean.",
+    "url": "https://kushal-coder.itch.io/submarine-trash-collector"
+  },
+  "profiles": [
+    { "id": "artstation", "label": "ArtStation", "url": "https://kushal_raptor_x.artstation.com/" },
+    { "id": "itchio", "label": "itch.io", "url": "https://kushal-coder.itch.io/" }
+  ],
+  "commissions": {
+    "headline": "Open for commissions",
+    "text": "3D renders, brand assets, merch design, promo reels — the kind of work in this gallery. Reach out with a brief.",
+    "ctaText": "Commission me",
+    "ctaUrl": "mailto:kushal.coder@gmail.com?subject=Commission%20inquiry"
+  }
+}

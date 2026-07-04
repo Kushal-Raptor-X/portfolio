@@ -1,0 +1,100 @@
+{
+  "_readme": "Project cards, rendered in array order. To add: copy an object, fill fields, set visible:true. Honesty rules in docs/UPDATING.md — do not overclaim.",
+  "projects": [
+    {
+      "id": "kumbh-reunite",
+      "visible": true,
+      "featured": true,
+      "title": "Kumbh Reunite",
+      "badge": "Claude Impact Lab — 1 of 200",
+      "event": "India's first Claude Impact Lab (Anthropic-partnered), Mumbai",
+      "description": "Missing-person reunification system designed for the Nashik Kumbh Mela 2027 (80M+ expected pilgrims), built at an invite-only, one-day lab — 200 builders curated from 2,000+ applicants alongside engineers from J.P. Morgan, IBM, EY and Reliance Jio. A unified registry connects 10 previously disconnected missing-person centres, with human-in-the-loop AI assistance on top.",
+      "myRole": "Owned the smart PA announcement queue end-to-end (Claude-generated announcements in the case's own language, broadcast on a timed cycle), and wired the 2,500-case synthetic dataset with 1,280 CCTV locations across 32 zones into Firebase so the demo ran on realistic data. Proposed the role-based access model adopted in the system design.",
+      "highlights": [
+        "Multilingual duplicate detection (LaBSE embeddings, always human-confirmed)",
+        "Clothing-colour photo filter for the 371 cases with no name, only a photo",
+        "Police command dashboard with live risk scoring across 32 zones",
+        "Design principle stated on stage: no facial recognition, no location tracking — AI shows options, a human decides"
+      ],
+      "stack": ["Next.js", "Firebase", "Claude API", "LaBSE", "Leaflet"],
+      "links": { "live": null, "github": null, "video": null },
+      "linkNote": "Demoed live at the event; the shared team backend was retired afterwards."
+    },
+    {
+      "id": "resq-voiceforward",
+      "visible": true,
+      "featured": false,
+      "title": "ResQ VoiceForward",
+      "badge": "National Top 40 — Airavat 3.0",
+      "event": "Airavat 3.0 National Hackathon, IEEE CS SPIT",
+      "description": "A real-time AI intelligence layer that sits behind human crisis-helpline operators — explicitly not a chatbot, it never talks to callers or acts autonomously on safety decisions. Live multilingual transcription across 22 Indian languages + English with code-switching support, feeding a multi-agent pipeline for live emotion and risk detection.",
+      "myRole": null,
+      "highlights": [
+        "Sarvam AI (Saras v3) live transcription, 22 Indian languages + English",
+        "Multi-agent risk/emotion pipeline over WebSockets (FastAPI + Socket.io)",
+        "Deep-risk scoring via Featherless AI (DeepSeek-V3)"
+      ],
+      "stack": ["FastAPI", "Socket.io", "Sarvam AI", "Featherless AI", "MongoDB Atlas", "React"],
+      "links": { "live": null, "github": null, "video": null },
+      "linkNote": null
+    },
+    {
+      "id": "ethos",
+      "visible": true,
+      "featured": false,
+      "title": "Ethos",
+      "badge": "Top 6 — Syrus 2026",
+      "event": "Syrus 2026 Hackathon, CodeCell++ VESIT",
+      "description": "Agentic developer-onboarding platform: a chat-based 'Day 0 to ready-to-code' journey that replaces fragmented GitHub/Slack/Jira/Confluence onboarding, with reverse-RAG knowledge verification and a live architecture graph.",
+      "myRole": "Built the Slack-history mining feature — it retrieves how past employees solved the same problem from old Slack conversations and surfaces structured, relevant answers to new hires asking similar questions.",
+      "highlights": [
+        "Reverse RAG — verifies a new hire's understanding instead of just answering",
+        "'Architecture Twin' service-dependency graph in Neo4j (teammates' build)",
+        "RAG pipeline: LangChain + ChromaDB + Gemini API"
+      ],
+      "stack": ["LangChain", "FastAPI", "ChromaDB", "Neo4j", "Gemini API", "React"],
+      "links": { "live": null, "github": null, "video": null },
+      "linkNote": null
+    },
+    {
+      "id": "vidyasarthi",
+      "visible": true,
+      "featured": false,
+      "title": "Vidyasarthi",
+      "badge": "Real-client field project",
+      "event": "SE Field Project — piloted with Indrajeet Academy, Thane",
+      "description": "Institute management app designed from field research at a real tutoring institute — the team observed manual attendance/fee workflows on site and built for the pain points found. Five role-based modules (Student, Parent, Teacher, Admin, Admin Staff) with RBAC so each role sees only its data: dashboards for schedules, test scores, syllabus tracking and fees.",
+      "myRole": null,
+      "highlights": [
+        "Field research with a real client institute, not a toy spec",
+        "Role-based access control across five distinct user types",
+        "Flutter frontend + Supabase auth/database backend"
+      ],
+      "stack": ["Flutter", "Dart", "Supabase"],
+      "links": { "live": null, "github": null, "video": null },
+      "linkNote": null
+    },
+    {
+      "id": "bloodconnect",
+      "visible": true,
+      "featured": false,
+      "title": "BloodConnect",
+      "badge": "Top 10 — GDG TechSprint",
+      "event": "GDG VESIT TechSprint Hackathon",
+      "description": "Location-based real-time blood donor–patient matching. Live donor map (Google Maps JS API) rendering recipient location against nearby compatible donors, blood-bank stock visibility, and one-click patient→donor contact.",
+      "myRole": null,
+      "highlights": [
+        "Real-time request handling on Node.js",
+        "Interactive donor map with location-optimized matching",
+        "Fully responsive across mobile/tablet/desktop"
+      ],
+      "stack": ["React", "Node.js", "Supabase", "Google Maps API"],
+      "links": {
+        "live": "https://blood-donation-match-platform.vercel.app/",
+        "github": "https://github.com/Kushal-Raptor-X/Blood-Donation-Match-Platform",
+        "video": "https://youtu.be/DnNOr0cybWQ"
+      },
+      "linkNote": null
+    }
+  ]
+}
