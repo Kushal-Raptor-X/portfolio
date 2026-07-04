@@ -18,6 +18,9 @@ function useHeroParallax(
     if (!section || !content) return;
 
     gsap.registerPlugin(ScrollTrigger);
+    // mobile URL-bar show/hide fires resize -> ScrollTrigger.refresh() -> forced
+    // reflow; irrelevant to our scrub triggers, so skip it (perf only, no visual change)
+    ScrollTrigger.config({ ignoreMobileResize: true });
     const tween = gsap.fromTo(
       content,
       { y: 0, opacity: 1, scale: 1 },
@@ -50,7 +53,12 @@ function useHeroShader(ref: React.RefObject<HTMLElement | null>) {
     if (!el) return;
     const wide = window.matchMedia("(min-width: 768px)");
     const still = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (!wide.matches || still.matches) return;
+    // low-core/low-memory desktops (old laptops) still hit the >=768px query
+    // but can't afford a continuously-repainting shader canvas
+    const cores = navigator.hardwareConcurrency ?? 8;
+    const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 8;
+    const lowEnd = cores <= 2 || mem <= 2;
+    if (!wide.matches || still.matches || lowEnd) return;
 
     const io = new IntersectionObserver(([entry]) => setActive(entry.isIntersecting));
     io.observe(el);
