@@ -5,11 +5,11 @@ export default function Booking({ calLink }: { calLink: string }) {
     <section id="booking" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
-          <p data-reveal className="text-center font-mono text-xs uppercase tracking-[0.3em] text-neon-cyan">
+          <p data-reveal className="text-center font-mono text-xs uppercase tracking-[0.3em] text-accent-2">
             // booking
           </p>
           <h2 data-reveal className="mt-4 text-center text-4xl font-medium tracking-tight text-white md:text-5xl">
-            Fifteen minutes, <span className="font-serif italic text-neon-cyan">no agenda needed.</span>
+            Fifteen minutes, <span className="font-serif italic text-accent-2">no agenda needed.</span>
           </h2>
           <p data-reveal className="mx-auto mt-4 max-w-xl text-center text-[16px] text-gray-400">
             Hiring for an internship, scoping a commission, or just want to talk
@@ -22,7 +22,8 @@ export default function Booking({ calLink }: { calLink: string }) {
             <div data-reveal className="glass overflow-hidden rounded-3xl">
               <iframe
                 src={`https://cal.com/${calLink}?theme=dark&layout=month_view`}
-                className="h-[640px] w-full"
+                loading="lazy"
+                className="h-[70vh] min-h-[520px] w-full md:h-[640px]"
                 title="Book a call with Kushal"
               />
             </div>

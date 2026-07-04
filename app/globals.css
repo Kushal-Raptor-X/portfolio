@@ -4,10 +4,8 @@
   --color-canvas: #0a0a0d;
   --color-ink: #e5e5e5;
   --color-soft: #8a8a8a;
-  --color-neon-yellow: #f2e205;
-  --color-neon-cyan: #00e5ff;
-  --color-neon-magenta: #ff2afa;
-  --color-term: #39ff14;
+  --color-accent: #a78bfa;
+  --color-accent-2: #22d3ee;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
@@ -24,7 +22,7 @@ body {
 }
 
 ::selection {
-  background: rgba(0, 229, 255, 0.25);
+  background: rgba(167, 139, 250, 0.3);
   color: #fff;
 }
 

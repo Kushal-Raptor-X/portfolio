@@ -6,21 +6,21 @@ export default function Timeline() {
     <section id="experience" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
-          <p data-reveal className="font-mono text-xs uppercase tracking-[0.3em] text-neon-yellow">
+          <p data-reveal className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
             // experience
           </p>
           <h2 data-reveal className="mt-4 text-4xl font-medium tracking-tight text-white md:text-5xl">
-            The <span className="font-serif italic text-neon-yellow">timeline.</span>
+            The <span className="font-serif italic text-accent">timeline.</span>
           </h2>
         </Reveal>
 
         <Reveal className="mt-14 max-w-3xl" stagger={0.12}>
           {timeline.map((entry) => (
             <div key={entry.id} data-reveal className="relative border-l border-white/10 pb-12 pl-8 last:pb-0">
-              <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-neon-yellow shadow-[0_0_12px_rgba(242,226,5,0.6)]" />
+              <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_12px_rgba(167,139,250,0.6)]" />
               <p className="font-mono text-xs tracking-wider text-gray-500">{entry.period}</p>
               <h3 className="mt-2 text-xl font-semibold text-white">{entry.role}</h3>
-              <p className="mt-0.5 text-sm font-medium text-neon-yellow/80">{entry.org}</p>
+              <p className="mt-0.5 text-sm font-medium text-accent/80">{entry.org}</p>
               <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-400">{entry.description}</p>
               {entry.highlights.length > 0 && (
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -43,7 +43,7 @@ export default function Timeline() {
             {achievements.map((a) => (
               <span
                 key={a.id}
-                className="glass rounded-full px-4 py-2 text-sm text-gray-300 transition-colors hover:border-neon-yellow/40 hover:text-white"
+                className="glass rounded-full px-4 py-2 text-sm text-gray-300 transition-colors hover:border-accent/40 hover:text-white"
               >
                 {a.text}
               </span>

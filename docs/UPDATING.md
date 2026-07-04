@@ -3,7 +3,7 @@
 This site is **config-driven**. Nearly every update is a JSON edit in `site/content/` + a redeploy. No component code changes needed for content work.
 
 **Live URL:** https://kushal-naik.vercel.app
-**Stack:** Next.js (App Router) + Tailwind v4 + GSAP + `@paper-design/shaders-react` + `@google/model-viewer`. Fully static.
+**Stack:** Next.js (App Router) + Tailwind v4 + GSAP + `@paper-design/shaders-react` (hero only, desktop only) + `three` (starship viewer with a normal-gradient shader). Fully static. Perf rule: the hero MeshGradient is the only animated shader — section backgrounds are static CSS gradients; keep it that way.
 
 ---
 
@@ -67,7 +67,7 @@ Copy an object in `content/experience.json` → `timeline` (newest goes FIRST in
 | `features.starshipModel` | 3D starship in hero |
 | `features.techMarquee` | Scrolling tech-stack strip under hero |
 | `features.commissionsOpen` | "Open for commissions" card in Craft |
-| `features.asciiDividers` | Green ASCII dividers between sections |
+| `features.asciiDividers` | Hairline section dividers with mono labels |
 | `socials[n].visible` | Individual social button in footer |
 
 Example: user says "show my Instagram" → set `socials` entry `instagram` → `"visible": true`. Done.
@@ -94,7 +94,7 @@ Local preview: `npm run dev` → http://localhost:3000
 
 ## Pending TODOs (state as of 2026-07-04)
 
-- [ ] **Cal.com**: create free account, put `username` (or `username/event-slug`) into `site-config.json` → `booking.calLink`. Until then booking section shows email fallback.
+- [x] **Cal.com**: `booking.calLink` = `kushal-naik` — embed live.
 - [ ] **HackerRank**: only the private /dashboard URL is known. Get public profile URL, fill `socials` → `hackerrank.url`, set `visible: true` (Kushal explicitly wants it shown).
 - [ ] **Pwnisher links**: Kushal will supply YouTube compilation links + timestamps for `alternate-realities` and `endless-engines` — fill `compilationLink` + `timestamp` in `gallery.json` (component shows badge already; link becomes clickable once present — check `Craft.tsx` renders it, wire if not).
 - [ ] **Resume button**: V2 — resume being rewritten in a separate project. When PDF exists: drop in `public/`, add button to Hero/About.

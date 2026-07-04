@@ -3,6 +3,8 @@
 import { useRef, useState } from "react";
 import { GrainGradient } from "@paper-design/shaders-react";
 import Reveal from "./Reveal";
+import TiltCard from "./TiltCard";
+import { useInView } from "@/lib/useInView";
 import type { GalleryItem } from "@/lib/content";
 
 function GalleryVideo({ item }: { item: GalleryItem }) {
@@ -47,7 +49,8 @@ function GalleryVideo({ item }: { item: GalleryItem }) {
 
 function GalleryCard({ item, categories }: { item: GalleryItem; categories: Record<string, string> }) {
   return (
-    <figure data-reveal className="glass mb-5 break-inside-avoid overflow-hidden rounded-2xl p-2">
+    <TiltCard className="mb-5 break-inside-avoid">
+    <figure data-reveal className="glass overflow-hidden rounded-2xl p-2">
       {item.type === "video" ? (
         <GalleryVideo item={item} />
       ) : (
@@ -65,7 +68,7 @@ function GalleryCard({ item, categories }: { item: GalleryItem; categories: Reco
           <p className="mt-1 font-mono text-xs text-gray-500">{item.client}</p>
         )}
         {"badge" in item && item.badge && (
-          <p className="mt-1.5 inline-block rounded-full border border-neon-magenta/30 bg-neon-magenta/10 px-2.5 py-0.5 text-[11px] text-neon-magenta">
+          <p className="mt-1.5 inline-block rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-[11px] text-accent">
             {"compilationLink" in item && item.compilationLink ? (
               <a
                 href={item.compilationLink}
@@ -84,6 +87,7 @@ function GalleryCard({ item, categories }: { item: GalleryItem; categories: Reco
         )}
       </figcaption>
     </figure>
+    </TiltCard>
   );
 }
 
@@ -104,28 +108,33 @@ export default function Craft({
   commissions: { headline: string; text: string; ctaText: string; ctaUrl: string };
   commissionsOpen: boolean;
 }) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const inView = useInView(sectionRef);
+
   return (
-    <section id="craft" className="relative overflow-hidden py-24 md:py-32">
-      <GrainGradient
-        colors={["#7300ff", "#eba8ff", "#00bfff", "#2b00ff", "#33cc99"]}
-        colorBack="#000000"
-        softness={0.5}
-        intensity={0.5}
-        noise={0.25}
-        shape="corners"
-        speed={1}
-        scale={1}
-        className="absolute inset-0 h-full w-full opacity-30"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0d] via-transparent to-[#0a0a0d]" />
+    <section ref={sectionRef} id="craft" className="relative overflow-hidden py-24 md:py-32">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_45%_at_15%_10%,rgba(139,124,246,0.16),transparent_70%),radial-gradient(ellipse_55%_40%_at_90%_70%,rgba(34,211,238,0.08),transparent_70%)]" />
+      {inView && (
+        <GrainGradient
+          colors={["#4c3aad", "#8b7cf6", "#22d3ee", "#3b2a8d", "#1c1640"]}
+          colorBack="#000000"
+          softness={0.5}
+          intensity={0.4}
+          noise={0.2}
+          shape="corners"
+          speed={0.6}
+          scale={1}
+          className="absolute inset-0 h-full w-full opacity-25"
+        />
+      )}
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <Reveal>
-          <p data-reveal className="font-mono text-xs uppercase tracking-[0.3em] text-neon-magenta">
+          <p data-reveal className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
             // craft lab
           </p>
           <h2 data-reveal className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-white md:text-5xl">
-            The other half is <span className="font-serif italic text-neon-magenta">rendered.</span>
+            The other half is <span className="font-serif italic text-accent">rendered.</span>
           </h2>
           <p data-reveal className="mt-4 max-w-2xl text-[16px] text-gray-400">
             Client brand work, render-challenge entries and personal studies — all made
@@ -137,10 +146,12 @@ export default function Craft({
           {facets
             .filter((f) => f.visible)
             .map((f) => (
-              <div key={f.id} data-reveal className="glass rounded-2xl p-5">
-                <h3 className="font-mono text-sm font-semibold text-white">{f.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-500">{f.description}</p>
-              </div>
+              <TiltCard key={f.id}>
+                <div data-reveal className="glass rounded-2xl p-5">
+                  <h3 className="font-mono text-sm font-semibold text-white">{f.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-500">{f.description}</p>
+                </div>
+              </TiltCard>
             ))}
         </Reveal>
 
@@ -173,9 +184,9 @@ export default function Craft({
           )}
 
           {commissionsOpen && (
-            <div data-reveal className="glass rounded-3xl border-neon-magenta/20 p-7">
-              <span className="inline-flex items-center gap-2 rounded-full border border-neon-magenta/30 bg-neon-magenta/10 px-3 py-1 font-mono text-xs text-neon-magenta">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-neon-magenta" />
+            <div data-reveal className="glass rounded-3xl border-accent/20 p-7">
+              <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-mono text-xs text-accent">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
                 {commissions.headline}
               </span>
               <p className="mt-4 text-[15px] leading-relaxed text-gray-400">{commissions.text}</p>

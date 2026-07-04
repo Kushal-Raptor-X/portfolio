@@ -16,7 +16,7 @@ export default function About() {
               className="aspect-square w-full rounded-2xl object-cover"
             />
           </div>
-          <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-black/80 px-4 py-1.5 font-mono text-xs text-neon-yellow backdrop-blur-sm">
+          <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-black/80 px-4 py-1.5 font-mono text-xs text-accent backdrop-blur-sm">
             PR Head @ CSI VESIT
           </span>
         </div>
@@ -24,7 +24,7 @@ export default function About() {
         <div>
           <h2 data-reveal className="text-4xl font-medium tracking-tight text-white md:text-5xl">
             {about.headline.split(" ").slice(0, -3).join(" ")}{" "}
-            <span className="font-serif italic text-neon-yellow">
+            <span className="font-serif italic text-accent">
               {about.headline.split(" ").slice(-3).join(" ")}
             </span>
           </h2>

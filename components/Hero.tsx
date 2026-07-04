@@ -1,8 +1,64 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MeshGradient } from "@paper-design/shaders-react";
 import StarshipViewer from "./StarshipViewer";
+
+/** Apple-style scroll drift: content settles back and fades as the hero scrolls past. */
+function useHeroParallax(
+  sectionRef: React.RefObject<HTMLElement | null>,
+  contentRef: React.RefObject<HTMLDivElement | null>
+) {
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const section = sectionRef.current;
+    const content = contentRef.current;
+    if (!section || !content) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+    const tween = gsap.fromTo(
+      content,
+      { y: 0, opacity: 1, scale: 1 },
+      {
+        y: -80,
+        opacity: 0.2,
+        scale: 0.96,
+        ease: "none",
+        scrollTrigger: { trigger: section, start: "top top", end: "bottom top", scrub: true },
+      }
+    );
+    return () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    };
+  }, [sectionRef, contentRef]);
+}
+
+/**
+ * The animated mesh gradient is the site's one always-on shader. It only
+ * mounts on desktop-class viewports (and never under reduced motion), and
+ * unmounts while the hero is scrolled out of view. A static CSS gradient
+ * underneath keeps the same look everywhere else for free.
+ */
+function useHeroShader(ref: React.RefObject<HTMLElement | null>) {
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const wide = window.matchMedia("(min-width: 768px)");
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!wide.matches || still.matches) return;
+
+    const io = new IntersectionObserver(([entry]) => setActive(entry.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, [ref]);
+
+  return active;
+}
 
 function TypingRoles({ roles }: { roles: string[] }) {
   const [roleIdx, setRoleIdx] = useState(0);
@@ -32,7 +88,7 @@ function TypingRoles({ roles }: { roles: string[] }) {
   }, [text, deleting, roleIdx, roles]);
 
   return (
-    <span className="font-mono text-neon-cyan">
+    <span className="font-mono text-accent-2">
       {text}
       <span className="cursor-blink">_</span>
     </span>
@@ -72,27 +128,43 @@ export default function Hero({
   showStarship: boolean;
   showMarquee: boolean;
 }) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const shaderActive = useHeroShader(sectionRef);
+  useHeroParallax(sectionRef, contentRef);
+
   return (
-    <section id="top" className="relative flex min-h-screen flex-col overflow-hidden">
-      <MeshGradient
-        colors={["#aaa7d7", "#3b2a8d"]}
-        distortion={1}
-        swirl={1}
-        grainMixer={0.29}
-        grainOverlay={0.5}
-        speed={1.06}
-        scale={0.88}
-        offsetX={-0.08}
-        className="absolute inset-0 h-full w-full"
-      />
+    <section
+      ref={sectionRef}
+      id="top"
+      className="relative flex min-h-screen flex-col overflow-hidden"
+    >
+      {/* static gradient — mobile look + fallback while the shader is off */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_30%_20%,#3b2a8d_0%,#1c1640_45%,#0a0a0d_100%)]" />
+      {shaderActive && (
+        <MeshGradient
+          colors={["#aaa7d7", "#3b2a8d"]}
+          distortion={1}
+          swirl={1}
+          grainMixer={0.29}
+          grainOverlay={0.5}
+          speed={1.06}
+          scale={0.88}
+          offsetX={-0.08}
+          className="absolute inset-0 h-full w-full"
+        />
+      )}
       {/* keep text readable + settle into page canvas */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-[#0a0a0d]" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pt-32 pb-16">
+      <div
+        ref={contentRef}
+        className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pt-32 pb-16"
+      >
         <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
             <span className="animate-on-load load-delay-100 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs font-medium text-gray-300 backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-term" />
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-2" />
               {badge}
             </span>
 
@@ -127,8 +199,8 @@ export default function Hero({
           </div>
 
           {showStarship && (
-            <div className="animate-on-load load-delay-600 relative h-72 md:h-96">
-              <StarshipViewer />
+            <div className="animate-on-load load-delay-600 relative h-64 sm:h-80 md:h-[26rem]">
+              <StarshipViewer className="h-[calc(100%-1.75rem)]" />
               <p className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-widest text-gray-500">
                 my own model — drag to orbit
               </p>

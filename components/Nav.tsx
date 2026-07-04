@@ -29,7 +29,7 @@ export default function Nav() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#top" className="font-mono text-lg font-bold text-white">
-          KN<span className="cursor-blink text-term">_</span>
+          KN<span className="cursor-blink text-accent-2">_</span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

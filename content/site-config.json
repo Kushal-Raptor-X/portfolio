@@ -24,8 +24,7 @@
     "asciiDividers": true
   },
   "booking": {
-    "calLink": "",
-    "_todo": "Create free cal.com account, put username or username/event-slug in calLink (e.g. 'kushal-naik/intro-call'). Empty = section shows email fallback CTA."
+    "calLink": "kushal-naik"
   },
   "hero": {
     "roles": [
