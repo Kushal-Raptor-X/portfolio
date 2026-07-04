@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { GrainGradient } from "@paper-design/shaders-react";
 import Reveal from "./Reveal";
 import TiltCard from "./TiltCard";
@@ -29,6 +30,8 @@ function GalleryVideo({ item }: { item: GalleryItem }) {
         ref={ref}
         src={item.file}
         poster={item.poster}
+        width={item.width}
+        height={item.height}
         preload="none"
         loop
         playsInline
@@ -50,12 +53,19 @@ function GalleryVideo({ item }: { item: GalleryItem }) {
 function GalleryCard({ item, categories }: { item: GalleryItem; categories: Record<string, string> }) {
   return (
     <TiltCard className="mb-5 break-inside-avoid">
-    <figure data-reveal className="glass overflow-hidden rounded-2xl p-2">
+    <figure data-reveal className="glass gallery-card overflow-hidden rounded-2xl p-2">
       {item.type === "video" ? (
         <GalleryVideo item={item} />
       ) : (
-        // eslint-disable-next-line @next/next/no-img-element -- masonry layout needs natural aspect ratios; files are local + lazy
-        <img src={item.file} alt={item.title} loading="lazy" className="w-full rounded-xl" />
+        <Image
+          src={item.file}
+          alt={item.title}
+          width={item.width}
+          height={item.height}
+          loading="lazy"
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="w-full rounded-xl"
+        />
       )}
       <figcaption className="px-2 pb-1.5 pt-3">
         <div className="flex items-start justify-between gap-2">

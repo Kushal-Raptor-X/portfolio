@@ -14,6 +14,11 @@ html {
   scroll-behavior: smooth;
 }
 
+.timeline-dot-lit {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.6);
+}
+
 body {
   background: #0a0a0d;
   color: #e5e5e5;
@@ -40,8 +45,14 @@ body {
 /* ---- surfaces ---- */
 .glass {
   background: rgba(28, 28, 30, 0.72);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  contain: paint;
+}
+
+.gallery-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 400px;
 }
 
 /* ---- load-in sequence (hero) ---- */

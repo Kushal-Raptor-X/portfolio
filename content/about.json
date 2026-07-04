@@ -1,9 +1,9 @@
 {
   "_readme": "About section content. Photo lives at public/photo/kushal.jpg — replace the file to change it.",
   "photo": "/photo/kushal.jpg",
-  "headline": "Engineer by degree, artist by compulsion.",
+  "headline": "Engineer by degree, artist by passion.",
   "paragraphs": [
-    "Second-year B.Tech student in AI & Data Science at VESIT, Mumbai — CGPA trending 9.0+. I build across AI-agent backends, Flutter apps and real-time systems, and I've carried four hackathon finishes plus a selection into India's first Claude Impact Lab (Anthropic-partnered, 200 picked from 2,000+ applicants).",
+    "Third-year B.Tech student in AI & Data Science at VESIT, Mumbai — CGPA trending 9.0+. I build across AI-agent backends, Flutter apps and real-time systems, and I've carried four hackathon finishes plus a selection into India's first Claude Impact Lab (Anthropic-partnered, 200 picked from 2,000+ applicants).",
     "The other half of my brain lives in Blender, DaVinci Resolve and Figma — client brand work, render-challenge entries featured in Pwnisher's official compilations, and a workshop where I taught 60+ beginners to make their first 3D render. Currently Public Relations Head at CSI VESIT."
   ],
   "stats": [

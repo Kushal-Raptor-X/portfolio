@@ -4,27 +4,36 @@
     {
       "id": "pr-head-csi",
       "visible": true,
-      "period": "2025 — present",
+      "period": "June 2026 — present",
       "role": "Public Relations Head",
       "org": "CSI VESIT",
       "description": "Promoted from Jr. Public Relations Officer. Leads outreach and promotion for VESIT's Computer Society of India chapter.",
       "highlights": []
     },
     {
+      "id": "jr-pr-officer-csi",
+      "visible": true,
+      "period": "Oct 2025 — May 2026",
+      "role": "Jr. Public Relations Officer",
+      "org": "CSI VESIT",
+      "description": "Drove outreach and promotional content for VESIT's Computer Society of India chapter — including 'Art in Axes' and 'Beyond Hawkins' below.",
+      "highlights": []
+    },
+    {
       "id": "art-in-axes",
       "visible": true,
-      "period": "2025",
+      "period": "Oct 2025 — May 2026",
       "role": "Instructor & Curriculum Architect — 'Art in Axes'",
-      "org": "CSI VESIT",
+      "org": "CSI VESIT (as Jr. Public Relations Officer)",
       "description": "Designed and hosted a live, end-to-end Blender 3D workshop for 60+ absolute beginners — reverse-engineered his own learning struggles into a curriculum that took the room from blank canvas to finished renders.",
       "highlights": ["60+ beginners taught", "Promo reel: 3,700+ views (produced & animated it)"]
     },
     {
       "id": "beyond-hawkins",
       "visible": true,
-      "period": "2025",
+      "period": "Oct 2025 — May 2026",
       "role": "Digital Outreach — 'Beyond Hawkins'",
-      "org": "CSI VESIT",
+      "org": "CSI VESIT (as Jr. Public Relations Officer)",
       "description": "Conceptualized and produced a Stranger Things–themed promotional reel that went viral within the student community and measurably drove event registrations.",
       "highlights": ["23,000+ views"]
     },

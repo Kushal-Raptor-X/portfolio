@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Warp, Dithering } from "@paper-design/shaders-react";
 import Reveal from "./Reveal";
 import TiltCard from "./TiltCard";
+import ParallaxGlow from "./ParallaxGlow";
 import { useInView } from "@/lib/useInView";
 import type { Project } from "@/lib/content";
 
@@ -107,7 +108,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
 
   return (
     <section ref={sectionRef} id="projects" className="relative overflow-hidden py-24 md:py-32">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_80%_10%,rgba(139,124,246,0.14),transparent_70%),radial-gradient(ellipse_50%_40%_at_10%_80%,rgba(59,42,141,0.25),transparent_70%)]" />
+      <ParallaxGlow className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_80%_10%,rgba(139,124,246,0.14),transparent_70%),radial-gradient(ellipse_50%_40%_at_10%_80%,rgba(59,42,141,0.25),transparent_70%)]" />
       {inView && (
         <Warp
           colors={["#0a0a0d", "#8b7cf6", "#0a0a0d", "#22d3ee"]}

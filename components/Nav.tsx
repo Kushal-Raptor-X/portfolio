@@ -13,6 +13,7 @@ const LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string>("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -21,14 +22,33 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const sections = LINKS.map((l) => document.querySelector(l.href)).filter(
+      (el): el is Element => el !== null
+    );
+    if (sections.length === 0) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length > 0) {
+          setActive(`#${visible[0].target.id}`);
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "border-b border-white/5 bg-black/80 backdrop-blur-md" : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+        scrolled ? "border-white/5 bg-black/80 backdrop-blur-md" : "border-accent/10 bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#top" className="font-mono text-lg font-bold text-white">
+        <a href="#top" className="flex items-center gap-2 font-mono text-lg font-bold text-white">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(167,139,250,0.8)]" />
           KN<span className="cursor-blink text-accent-2">_</span>
         </a>
 
@@ -37,9 +57,16 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
+              className={`group relative text-sm font-medium transition-colors ${
+                active === l.href ? "text-white" : "text-gray-300 hover:text-white"
+              }`}
             >
               {l.label}
+              <span
+                className={`absolute -bottom-1 left-0 h-px w-full origin-left bg-accent transition-transform duration-300 ${
+                  active === l.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              />
             </a>
           ))}
         </div>

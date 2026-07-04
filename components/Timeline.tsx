@@ -1,10 +1,13 @@
 import Reveal from "./Reveal";
+import ParallaxGlow from "./ParallaxGlow";
+import TimelineLine from "./TimelineLine";
 import { timeline, achievements } from "@/lib/content";
 
 export default function Timeline() {
   return (
-    <section id="experience" className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="experience" className="relative overflow-hidden py-24 md:py-32">
+      <ParallaxGlow className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_85%_15%,rgba(139,124,246,0.10),transparent_70%),radial-gradient(ellipse_45%_35%_at_10%_85%,rgba(59,42,141,0.16),transparent_70%)]" />
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
         <Reveal>
           <p data-reveal className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
             // experience
@@ -14,10 +17,10 @@ export default function Timeline() {
           </h2>
         </Reveal>
 
-        <Reveal className="mt-14 max-w-3xl" stagger={0.12}>
+        <Reveal className="relative mt-14 max-w-3xl" stagger={0.12}>
+          <TimelineLine count={timeline.length} />
           {timeline.map((entry) => (
-            <div key={entry.id} data-reveal className="relative border-l border-white/10 pb-12 pl-8 last:pb-0">
-              <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_12px_rgba(167,139,250,0.6)]" />
+            <div key={entry.id} data-reveal className="relative pb-12 pl-8 last:pb-0">
               <p className="font-mono text-xs tracking-wider text-gray-500">{entry.period}</p>
               <h3 className="mt-2 text-xl font-semibold text-white">{entry.role}</h3>
               <p className="mt-0.5 text-sm font-medium text-accent/80">{entry.org}</p>
