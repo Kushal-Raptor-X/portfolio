@@ -66,7 +66,20 @@ function GalleryCard({ item, categories }: { item: GalleryItem; categories: Reco
         )}
         {"badge" in item && item.badge && (
           <p className="mt-1.5 inline-block rounded-full border border-neon-magenta/30 bg-neon-magenta/10 px-2.5 py-0.5 text-[11px] text-neon-magenta">
-            ★ {item.badge}
+            {"compilationLink" in item && item.compilationLink ? (
+              <a
+                href={item.compilationLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+                onClick={(e) => e.stopPropagation()}
+              >
+                ★ {item.badge}
+                {"timestamp" in item && item.timestamp ? ` @ ${item.timestamp}` : ""} ↗
+              </a>
+            ) : (
+              <>★ {item.badge}</>
+            )}
           </p>
         )}
       </figcaption>

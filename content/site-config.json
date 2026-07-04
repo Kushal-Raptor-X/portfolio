@@ -28,25 +28,92 @@
     "_todo": "Create free cal.com account, put username or username/event-slug in calLink (e.g. 'kushal-naik/intro-call'). Empty = section shows email fallback CTA."
   },
   "hero": {
-    "roles": ["AI Product Engineer", "3D Artist", "Builder"],
+    "roles": [
+      "AI Product Engineer",
+      "3D Artist",
+      "Builder"
+    ],
     "ctaText": "Book a call",
     "badge": "Open to internships & commissions"
   },
   "marquee": [
-    "Python", "Next.js", "Flutter", "FastAPI", "LangChain", "Supabase",
-    "Firebase", "Claude API", "WebSockets", "ChromaDB", "Neo4j",
-    "Blender", "DaVinci Resolve", "Figma"
+    "Python",
+    "Next.js",
+    "Flutter",
+    "FastAPI",
+    "LangChain",
+    "Supabase",
+    "Firebase",
+    "Claude API",
+    "WebSockets",
+    "ChromaDB",
+    "Neo4j",
+    "Blender",
+    "DaVinci Resolve",
+    "Figma"
   ],
   "socials": [
-    { "id": "linkedin",   "label": "LinkedIn",    "url": "https://www.linkedin.com/in/kushal-m-naik/",              "visible": true },
-    { "id": "github",     "label": "GitHub",      "url": "https://github.com/Kushal-Raptor-X/",                     "visible": true },
-    { "id": "email",      "label": "Email",       "url": "mailto:kushal.coder@gmail.com",                           "visible": true },
-    { "id": "artstation", "label": "ArtStation",  "url": "https://kushal_raptor_x.artstation.com/",                 "visible": true },
-    { "id": "itchio",     "label": "itch.io",     "url": "https://kushal-coder.itch.io/",                           "visible": true },
-    { "id": "x",          "label": "X",           "url": "https://x.com/Kushal_Raptor_X",                           "visible": true },
-    { "id": "leetcode",   "label": "LeetCode",    "url": "https://leetcode.com/u/KushalNaik/",                      "visible": true },
-    { "id": "hackerrank", "label": "HackerRank",  "url": "",                                                        "visible": false, "_todo": "links.txt only had the private /dashboard URL. Put your PUBLIC profile URL (hackerrank.com/profile/<username>) here, then set visible:true — you asked for this one shown." },
-    { "id": "instagram",  "label": "Instagram",   "url": "https://www.instagram.com/kabooom.mp3/",                  "visible": false },
-    { "id": "discord",    "label": "Discord",     "url": "", "handle": "_kushal_",                                  "visible": false }
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/kushal-m-naik/",
+      "visible": true
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "url": "https://github.com/Kushal-Raptor-X/",
+      "visible": true
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "url": "mailto:kushal.coder@gmail.com",
+      "visible": true
+    },
+    {
+      "id": "artstation",
+      "label": "ArtStation",
+      "url": "https://kushal_raptor_x.artstation.com/",
+      "visible": true
+    },
+    {
+      "id": "itchio",
+      "label": "itch.io",
+      "url": "https://kushal-coder.itch.io/",
+      "visible": true
+    },
+    {
+      "id": "x",
+      "label": "X",
+      "url": "https://x.com/Kushal_Raptor_X",
+      "visible": true
+    },
+    {
+      "id": "leetcode",
+      "label": "LeetCode",
+      "url": "https://leetcode.com/u/KushalNaik/",
+      "visible": true
+    },
+    {
+      "id": "hackerrank",
+      "label": "HackerRank",
+      "url": "",
+      "visible": false,
+      "_todo": "links.txt only had the private /dashboard URL. Put your PUBLIC profile URL (hackerrank.com/profile/<username>) here, then set visible:true — you asked for this one shown."
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/kabooom.mp3/",
+      "visible": false
+    },
+    {
+      "id": "discord",
+      "label": "Discord",
+      "url": "",
+      "handle": "_kushal_",
+      "visible": false
+    }
   ]
 }
