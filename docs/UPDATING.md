@@ -97,7 +97,7 @@ Local preview: `npm run dev` → http://localhost:3000
 - [x] **Cal.com**: `booking.calLink` = `kushal-naik` — embed live.
 - [ ] **HackerRank**: only the private /dashboard URL is known. Get public profile URL, fill `socials` → `hackerrank.url`, set `visible: true` (Kushal explicitly wants it shown).
 - [ ] **Pwnisher links**: Kushal will supply YouTube compilation links + timestamps for `alternate-realities` and `endless-engines` — fill `compilationLink` + `timestamp` in `gallery.json` (component shows badge already; link becomes clickable once present — check `Craft.tsx` renders it, wire if not).
-- [ ] **Resume button**: V2 — resume being rewritten in a separate project. When PDF exists: drop in `public/`, add button to Hero/About.
+- [x] **Resume button**: `public/Kushal_Naik_Resume.pdf` + `hero.resumeUrl` wired, button live in Hero next to "See projects".
 - [x] **GitHub repo**: https://github.com/Kushal-Raptor-X/portfolio (public). Vercel not git-connected yet — connect in Vercel dashboard to get push-to-deploy; until then use the CLI deploy above.
 - [ ] **Project GitHub links**: ResQ/Ethos/Vidyasarthi/Kumbh have `github: null` — fill if/when repos are public.
 

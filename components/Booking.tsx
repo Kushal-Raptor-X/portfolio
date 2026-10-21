@@ -6,7 +6,7 @@ export default function Booking({ calLink }: { calLink: string }) {
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
           <p data-reveal className="text-center font-mono text-xs uppercase tracking-[0.3em] text-accent-2">
-            // booking
+            {"// booking"}
           </p>
           <h2 data-reveal className="mt-4 text-center text-4xl font-medium tracking-tight text-white md:text-5xl">
             Fifteen minutes, <span className="font-serif italic text-accent-2">no agenda needed.</span>

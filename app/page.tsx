@@ -32,6 +32,7 @@ export default function Home() {
           roles={config.hero.roles}
           badge={config.hero.badge}
           ctaText={config.hero.ctaText}
+          resumeUrl={config.hero.resumeUrl}
           marquee={config.marquee}
           showStarship={features.starshipModel}
           showMarquee={features.techMarquee}

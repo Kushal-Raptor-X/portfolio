@@ -129,7 +129,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <Reveal>
           <p data-reveal className="font-mono text-xs uppercase tracking-[0.3em] text-accent-2">
-            // projects
+            {"// projects"}
           </p>
           <h2 data-reveal className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-white md:text-5xl">
             Built under pressure, <span className="font-serif italic text-accent-2">judged on stage.</span>

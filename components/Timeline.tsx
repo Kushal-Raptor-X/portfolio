@@ -10,7 +10,7 @@ export default function Timeline() {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <Reveal>
           <p data-reveal className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
-            // experience
+            {"// experience"}
           </p>
           <h2 data-reveal className="mt-4 text-4xl font-medium tracking-tight text-white md:text-5xl">
             The <span className="font-serif italic text-accent">timeline.</span>

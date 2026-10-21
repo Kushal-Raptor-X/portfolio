@@ -125,6 +125,7 @@ export default function Hero({
   roles,
   badge,
   ctaText,
+  resumeUrl,
   marquee,
   showStarship,
   showMarquee,
@@ -132,6 +133,7 @@ export default function Hero({
   roles: string[];
   badge: string;
   ctaText: string;
+  resumeUrl?: string;
   marquee: string[];
   showStarship: boolean;
   showMarquee: boolean;
@@ -203,6 +205,16 @@ export default function Hero({
               >
                 See projects
               </a>
+              {resumeUrl && (
+                <a
+                  href={resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/5 bg-[#1F1F22] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#2A2A2D]"
+                >
+                  Resume
+                </a>
+              )}
             </div>
           </div>
 
